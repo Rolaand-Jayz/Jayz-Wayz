@@ -1,0 +1,10 @@
+{
+  "segments": [
+    {"path": "segment_0001.mp4", "duration_s": 240, "average_bitrate_mbps": 52.0},
+    {"path": "segment_0002.mp4", "duration_s": 235, "average_bitrate_mbps": 50.5},
+    {"path": "segment_0003.mp4", "duration_s": 238, "average_bitrate_mbps": 49.7}
+  ],
+  "total_duration_s": 713,
+  "total_storage_mb": 4700,
+  "max_parallel_writers": 3
+}

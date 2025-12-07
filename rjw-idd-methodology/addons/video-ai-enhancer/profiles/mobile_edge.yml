@@ -1,0 +1,26 @@
+# PROFILE-VIDEO-AI-MOBILE
+profile: mobile_edge
+description: Latency-aware profile tuned for constrained edge devices and uplinks.
+overrides:
+  quality_targets:
+    metrics:
+      vmaf: 85
+      psnr: 33
+      ssim: 0.9
+      lpips: 0.1
+    frame_consistency:
+      jitter_ratio: 0.06
+      frame_drop_pct: 1.5
+      cadence_min_fps: 30
+  latency_budgets:
+    glass_to_glass_ms: 140
+    pipeline_budget_ms: 18
+    encode_buffer_ms: 18
+  storage_pipeline:
+    max_bitrate_mbps: 45
+    capture_window_minutes: 20
+  models:
+    default_model: rjw-video-edge
+    runtime: onnx
+    acceleration: cpu
+  # telemetry removed

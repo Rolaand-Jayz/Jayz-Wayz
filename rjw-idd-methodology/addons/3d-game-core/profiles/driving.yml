@@ -1,0 +1,48 @@
+# PROFILE-3D-CORE-DRIVING
+profile: driving
+description: Vehicle-focused driving, racing, or flight titles requiring high-speed stability.
+overrides:
+  tolerant_replay:
+    position_m: 0.1
+    orientation_deg: 2.5
+    velocity_mps: 0.5
+    angular_velocity_dps: 10.0
+    animation_normalised_error: 0.08
+    consecutive_drift_limit: 6
+  rollback:
+    max_prediction_ticks: 12
+    max_reconciliation_ticks: 6
+    misprediction_rate_threshold: 0.06
+    rollback_depth_threshold: 6
+  performance_budgets:
+    frame:
+      cpu_ms: 13.5
+      gpu_ms: 13.5
+    memory:
+      system_ram_mb: 12000
+      vram_mb: 7000
+      texture_pool_mb: 2560
+    scene:
+      draw_calls: 2000
+      materials: 350
+      lights: 70
+  asset_rules:
+    meshes:
+      max_triangles: 160000
+      max_vertices: 110000
+      max_lods: 6
+    materials:
+      max_per_mesh: 8
+      shader_variant_cap: 80
+    textures:
+      max_dimension: 4096
+      atlas_max_dimension: 8192
+    skeletal:
+      max_bones_per_mesh: 80
+      animation_max_seconds: 60
+      animation_max_fps: 60
+    audio:
+      target_lufs: -15
+      peak_ceiling_db: -1
+  perf_metrics_inputs:
+    sample_metrics_path: addons/3d-game-core/docs/samples/perf_metrics_driving.json

@@ -1,0 +1,48 @@
+# PROFILE-3D-CORE-ISOMETRIC
+profile: isometric
+description: 3D isometric and 2.5D experiences emphasising readability, crowd management, and layered combat.
+overrides:
+  tolerant_replay:
+    position_m: 0.07
+    orientation_deg: 3.5
+    velocity_mps: 0.28
+    angular_velocity_dps: 7.5
+    animation_normalised_error: 0.12
+    consecutive_drift_limit: 4
+  rollback:
+    max_prediction_ticks: 12
+    max_reconciliation_ticks: 6
+    misprediction_rate_threshold: 0.07
+    rollback_depth_threshold: 6
+  performance_budgets:
+    frame:
+      cpu_ms: 15.5
+      gpu_ms: 17.5
+    memory:
+      system_ram_mb: 11000
+      vram_mb: 5500
+      texture_pool_mb: 2304
+    scene:
+      draw_calls: 2600
+      materials: 360
+      lights: 75
+  asset_rules:
+    meshes:
+      max_triangles: 110000
+      max_vertices: 72000
+      max_lods: 4
+    materials:
+      max_per_mesh: 6
+      shader_variant_cap: 56
+    textures:
+      max_dimension: 4096
+      atlas_max_dimension: 8192
+    skeletal:
+      max_bones_per_mesh: 110
+      animation_max_seconds: 100
+      animation_max_fps: 55
+    audio:
+      target_lufs: -17
+      peak_ceiling_db: -1
+  perf_metrics_inputs:
+    sample_metrics_path: addons/3d-game-core/docs/samples/perf_metrics_isometric.json

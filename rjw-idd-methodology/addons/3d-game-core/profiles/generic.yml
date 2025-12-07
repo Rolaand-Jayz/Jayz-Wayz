@@ -1,0 +1,49 @@
+# PROFILE-3D-CORE-GENERIC
+profile: generic
+description: Baseline defaults suitable for most 3D titles with balanced action and exploration.
+overrides:
+  tolerant_replay:
+    position_m: 0.05
+    orientation_deg: 2.0
+    velocity_mps: 0.2
+    angular_velocity_dps: 5.0
+    animation_normalised_error: 0.1
+    consecutive_drift_limit: 3
+  rollback:
+    max_prediction_ticks: 8
+    max_reconciliation_ticks: 4
+    misprediction_rate_threshold: 0.05
+    rollback_depth_threshold: 4
+  performance_budgets:
+    frame:
+      cpu_ms: 16.6
+      gpu_ms: 16.6
+    memory:
+      system_ram_mb: 12000
+      vram_mb: 6000
+      texture_pool_mb: 2048
+    scene:
+      draw_calls: 2500
+      materials: 400
+      lights: 80
+  asset_rules:
+    meshes:
+      max_triangles: 120000
+      max_vertices: 80000
+      max_lods: 4
+    materials:
+      max_per_mesh: 6
+      shader_variant_cap: 64
+    textures:
+      max_dimension: 4096
+      atlas_max_dimension: 8192
+    skeletal:
+      max_bones_per_mesh: 120
+      animation_max_seconds: 120
+      animation_max_fps: 60
+    audio:
+      target_lufs: -16
+      peak_ceiling_db: -1
+  perf_metrics_inputs:
+    schema_version: 1.0.0
+    sample_metrics_path: addons/3d-game-core/docs/samples/perf_metrics_generic.json

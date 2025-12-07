@@ -1,0 +1,26 @@
+# PROFILE-VIDEO-AI-LIVE
+profile: live_stream
+description: Ultra-low latency profile for interactive streams and broadcasts.
+overrides:
+  quality_targets:
+    metrics:
+      vmaf: 90
+      psnr: 36
+      ssim: 0.94
+      lpips: 0.06
+    frame_consistency:
+      jitter_ratio: 0.03
+      frame_drop_pct: 0.5
+      cadence_min_fps: 60
+  latency_budgets:
+    glass_to_glass_ms: 90
+    pipeline_budget_ms: 12
+    encode_buffer_ms: 12
+    queue_depth_frames: 4
+  storage_pipeline:
+    max_bitrate_mbps: 60
+    capture_window_minutes: 15
+  # telemetry removed
+  models:
+    default_model: rjw-video-live
+    acceleration: tensor_rt

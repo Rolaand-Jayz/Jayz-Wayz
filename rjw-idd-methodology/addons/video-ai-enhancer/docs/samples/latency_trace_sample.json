@@ -1,0 +1,9 @@
+{
+  "frames": [
+    {"frame": 0, "glass_to_glass_ms": 84.0, "pipeline_ms": 11.5, "encode_ms": 12.2, "queue_depth": 3},
+    {"frame": 1, "glass_to_glass_ms": 86.0, "pipeline_ms": 12.0, "encode_ms": 12.4, "queue_depth": 3},
+    {"frame": 2, "glass_to_glass_ms": 83.5, "pipeline_ms": 11.4, "encode_ms": 12.1, "queue_depth": 2},
+    {"frame": 3, "glass_to_glass_ms": 85.2, "pipeline_ms": 11.8, "encode_ms": 12.0, "queue_depth": 3}
+  ],
+  "total_frames": 4
+}

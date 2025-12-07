@@ -1,0 +1,4 @@
+# PROFILE-VIDEO-AI-BASELINE
+profile: baseline
+description: Default profile for mixed workloads balancing quality, latency, and storage.
+overrides: {}

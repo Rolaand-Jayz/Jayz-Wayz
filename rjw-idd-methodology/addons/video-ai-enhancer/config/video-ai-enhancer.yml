@@ -1,0 +1,50 @@
+# CONFIG-VIDEO-AI-0001
+metadata:
+  version: 1.0.0
+  description: Base configuration for the RJW-IDD Video AI Enhancer add-in.
+  default_profile: baseline
+
+quality_targets:
+  metrics:
+    vmaf: 88
+    psnr: 35
+    ssim: 0.92
+    lpips: 0.08
+  frame_consistency:
+    jitter_ratio: 0.05
+    frame_drop_pct: 1.0
+    cadence_min_fps: 30
+  artifact_budget:
+    hallucination_pct: 0.5
+    color_shift_delta_e: 2.5
+
+latency_budgets:
+  glass_to_glass_ms: 120
+  pipeline_budget_ms: 16
+  encode_buffer_ms: 25
+  queue_depth_frames: 6
+
+stability_guards:
+  drift_tolerance_pct: 4
+  dropout_pct: 0.5
+  recovery_frames: 12
+  temporal_smoothing_window: 5
+
+storage_pipeline:
+  max_bitrate_mbps: 75
+  capture_window_minutes: 30
+  retention_hours: 24
+  segment_max_seconds: 300
+  max_parallel_writers: 4
+
+models:
+  default_model: rjw-video-hires
+  runtime: onnx
+  acceleration: auto
+  fallback_model: rjw-video-lite
+
+ci:
+  quality_gate_path: addons/video-ai-enhancer/tools/quality_gate_video.py
+  latency_guard_path: addons/video-ai-enhancer/tools/latency_guard_video.py
+  storage_validator_path: addons/video-ai-enhancer/tools/storage_capture_validator.py
+  id_validator_path: addons/video-ai-enhancer/tools/validate_ids_video_addin.py
