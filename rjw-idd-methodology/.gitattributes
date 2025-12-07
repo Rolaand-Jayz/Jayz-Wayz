@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# Ensure shell scripts keep LF endings
+*.sh text eol=lf
+
+# Treat notebooks and data as binary to avoid auto diff noise
+*.ipynb binary
+*.bin binary
+*.dat binary

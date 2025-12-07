@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "profile": "third_person",
+    "build_id": "SAMPLE-TPR",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "scene": "RJW_TPR_CITADEL"
+  },
+  "frame": {"cpu_ms": 15.2, "gpu_ms": 17.0, "dropped_frames": 1},
+  "memory": {"system_ram_mb": 10000, "vram_mb": 6100, "texture_pool_mb": 2200},
+  "subsystems": {
+    "render": {"draw_calls": 2500, "material_switches": 420, "lights": 85},
+    "animation": {"active_graphs": 55, "blend_time_avg_ms": 1.6},
+    "physics": {"step_ms": 4.0, "constraints": 390}
+  },
+  "network": {"rtt_ms": 55, "packet_loss_pct": 0.7, "misprediction_rate": 0.05, "rollback_depth": 4},
+  "snapshots": {
+    "tolerant_replay": "ci_samples/tolerant_snapshots.json",
+    "deterministic_tape": "ci_samples/determinism_tape.json"
+  },
+  "custom": {}
+}

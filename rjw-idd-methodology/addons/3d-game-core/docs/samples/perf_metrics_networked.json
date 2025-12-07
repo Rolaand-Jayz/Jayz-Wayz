@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "profile": "networked",
+    "build_id": "SAMPLE-NET",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "scene": "RJW_ROLLBACK_ARENA"
+  },
+  "frame": {"cpu_ms": 15.7, "gpu_ms": 15.9, "dropped_frames": 0},
+  "memory": {"system_ram_mb": 9100, "vram_mb": 5700, "texture_pool_mb": 2100},
+  "subsystems": {
+    "render": {"draw_calls": 2400, "material_switches": 380, "lights": 72},
+    "animation": {"active_graphs": 40, "blend_time_avg_ms": 1.2},
+    "physics": {"step_ms": 3.8, "constraints": 350}
+  },
+  "network": {"rtt_ms": 54, "packet_loss_pct": 0.7, "misprediction_rate": 0.06, "rollback_depth": 5},
+  "snapshots": {
+    "tolerant_replay": "ci_samples/tolerant_snapshots.json",
+    "deterministic_tape": "ci_samples/determinism_tape.json"
+  },
+  "custom": {}
+}

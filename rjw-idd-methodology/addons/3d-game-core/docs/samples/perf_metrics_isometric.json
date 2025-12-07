@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "profile": "isometric",
+    "build_id": "SAMPLE-ISO",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "scene": "RJW_ISO_DUNGEON"
+  },
+  "frame": {"cpu_ms": 14.8, "gpu_ms": 16.4, "dropped_frames": 0},
+  "memory": {"system_ram_mb": 7800, "vram_mb": 5100, "texture_pool_mb": 2000},
+  "subsystems": {
+    "render": {"draw_calls": 2350, "material_switches": 330, "lights": 68},
+    "animation": {"active_graphs": 46, "blend_time_avg_ms": 1.4},
+    "physics": {"step_ms": 3.7, "constraints": 360}
+  },
+  "network": {"rtt_ms": 52, "packet_loss_pct": 0.6, "misprediction_rate": 0.05, "rollback_depth": 4},
+  "snapshots": {
+    "tolerant_replay": "ci_samples/tolerant_snapshots.json",
+    "deterministic_tape": "ci_samples/determinism_tape.json"
+  },
+  "custom": {}
+}

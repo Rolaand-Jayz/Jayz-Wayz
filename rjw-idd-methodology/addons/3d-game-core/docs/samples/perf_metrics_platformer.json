@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "profile": "platformer",
+    "build_id": "SAMPLE-PLAT",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "scene": "RJW_PLATFORMER_GAUNTLET"
+  },
+  "frame": {"cpu_ms": 13.2, "gpu_ms": 13.5, "dropped_frames": 0},
+  "memory": {"system_ram_mb": 6800, "vram_mb": 4200, "texture_pool_mb": 1400},
+  "subsystems": {
+    "render": {"draw_calls": 1700, "material_switches": 240, "lights": 40},
+    "animation": {"active_graphs": 28, "blend_time_avg_ms": 1.0},
+    "physics": {"step_ms": 3.0, "constraints": 260}
+  },
+  "network": {"rtt_ms": 40, "packet_loss_pct": 0.4, "misprediction_rate": 0.03, "rollback_depth": 3},
+  "snapshots": {
+    "tolerant_replay": "ci_samples/tolerant_snapshots.json",
+    "deterministic_tape": "ci_samples/determinism_tape.json"
+  },
+  "custom": {}
+}

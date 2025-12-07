@@ -1,0 +1,26 @@
+# PROFILE-VIDEO-AI-BROADCAST
+profile: broadcast_mastering
+description: High fidelity mastering profile for premium VOD or broadcast deliveries.
+overrides:
+  quality_targets:
+    metrics:
+      vmaf: 94
+      psnr: 38
+      ssim: 0.96
+      lpips: 0.04
+    artifact_budget:
+      hallucination_pct: 0.2
+      color_shift_delta_e: 1.0
+  latency_budgets:
+    glass_to_glass_ms: 180
+    pipeline_budget_ms: 24
+    encode_buffer_ms: 35
+  storage_pipeline:
+    max_bitrate_mbps: 110
+    capture_window_minutes: 60
+    retention_hours: 72
+  models:
+    default_model: rjw-video-mastering
+    runtime: tensor_rt
+    acceleration: tensor_rt
+  # telemetry removed

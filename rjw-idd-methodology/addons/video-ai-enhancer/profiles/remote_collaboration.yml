@@ -1,0 +1,25 @@
+# PROFILE-VIDEO-AI-COLLAB
+profile: remote_collaboration
+description: Balanced profile for remote creative collaboration with shared canvases.
+overrides:
+  quality_targets:
+    metrics:
+      vmaf: 89
+      psnr: 34.5
+      ssim: 0.93
+      lpips: 0.07
+    frame_consistency:
+      jitter_ratio: 0.04
+      frame_drop_pct: 0.8
+      cadence_min_fps: 45
+  latency_budgets:
+    glass_to_glass_ms: 110
+    pipeline_budget_ms: 14
+    encode_buffer_ms: 18
+  storage_pipeline:
+    capture_window_minutes: 45
+    retention_hours: 48
+  # telemetry removed
+  models:
+    default_model: rjw-video-collab
+    acceleration: auto

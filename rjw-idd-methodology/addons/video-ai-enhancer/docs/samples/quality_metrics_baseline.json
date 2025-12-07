@@ -1,0 +1,18 @@
+{
+  "stream": "sample-feed",
+  "metrics": {
+    "vmaf": 89.7,
+    "psnr": 35.8,
+    "ssim": 0.93,
+    "lpips": 0.065
+  },
+  "frame_consistency": {
+    "jitter_ratio": 0.032,
+    "frame_drop_pct": 0.6,
+    "actual_fps": 58.0
+  },
+  "artifact_budget": {
+    "hallucination_pct": 0.4,
+    "color_shift_delta_e": 1.5
+  }
+}

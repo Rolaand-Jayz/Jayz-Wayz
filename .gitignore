@@ -1,0 +1,15 @@
+# Editor/OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node.js (for markdownlint)
+node_modules/
+package.json
+package-lock.json

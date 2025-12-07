@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "profile": "first_person",
+    "build_id": "SAMPLE-FPS",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "scene": "RJW_FPS_RANGE"
+  },
+  "frame": {"cpu_ms": 12.6, "gpu_ms": 12.2, "dropped_frames": 0},
+  "memory": {"system_ram_mb": 9000, "vram_mb": 6200, "texture_pool_mb": 2500},
+  "subsystems": {
+    "render": {"draw_calls": 1800, "material_switches": 290, "lights": 45},
+    "animation": {"active_graphs": 30, "blend_time_avg_ms": 0.9},
+    "physics": {"step_ms": 3.2, "constraints": 310}
+  },
+  "network": {"rtt_ms": 32, "packet_loss_pct": 0.3, "misprediction_rate": 0.025, "rollback_depth": 2},
+  "snapshots": {
+    "tolerant_replay": "ci_samples/tolerant_snapshots.json",
+    "deterministic_tape": "ci_samples/determinism_tape.json"
+  },
+  "custom": {}
+}
