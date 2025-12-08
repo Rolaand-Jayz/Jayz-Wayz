@@ -2,7 +2,7 @@
 
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -40,7 +40,7 @@ class CheckpointStore:
             Path to the saved checkpoint file
         """
         metadata = metadata or {}
-        metadata["timestamp"] = datetime.utcnow().isoformat()
+        metadata["timestamp"] = datetime.now(timezone.utc).isoformat()
         metadata["checkpoint_id"] = checkpoint_id
         
         checkpoint_data = {
@@ -150,7 +150,7 @@ class CheckpointStore:
             Number of checkpoints deleted
         """
         deleted_count = 0
-        cutoff_time = datetime.utcnow().timestamp() - (max_age_days * 86400)
+        cutoff_time = datetime.now(timezone.utc).timestamp() - (max_age_days * 86400)
         
         for filepath in self.checkpoint_dir.glob("*.json"):
             try:

@@ -1,7 +1,7 @@
 """FIPA-ACL (Foundation for Intelligent Physical Agents - Agent Communication Language) message support."""
 
 from dataclasses import dataclass, field, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Dict, Optional
 
@@ -48,7 +48,7 @@ class Message:
     protocol: str = "fipa-request"
     language: str = "json"
     ontology: Optional[str] = None
-    timestamp: datetime = field(default_factory=datetime.utcnow)
+    timestamp: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     message_id: Optional[str] = None
     metadata: Dict[str, Any] = field(default_factory=dict)
     

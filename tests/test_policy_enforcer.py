@@ -33,12 +33,12 @@ async def test_opa_enforcer_allow():
     mock_response = AsyncMock()
     mock_response.status = 200
     mock_response.json = AsyncMock(return_value={"result": True})
+    mock_response.__aenter__ = AsyncMock(return_value=mock_response)
+    mock_response.__aexit__ = AsyncMock(return_value=None)
     
     with patch.object(enforcer, '_get_session') as mock_get_session:
         mock_session = AsyncMock()
-        mock_session.post = AsyncMock(return_value=mock_response)
-        mock_session.__aenter__ = AsyncMock(return_value=mock_response)
-        mock_session.__aexit__ = AsyncMock()
+        mock_session.post = MagicMock(return_value=mock_response)
         mock_get_session.return_value = mock_session
         
         result = await enforcer.enforce("read", "document1")
@@ -55,12 +55,12 @@ async def test_opa_enforcer_deny():
     mock_response = AsyncMock()
     mock_response.status = 200
     mock_response.json = AsyncMock(return_value={"result": False})
+    mock_response.__aenter__ = AsyncMock(return_value=mock_response)
+    mock_response.__aexit__ = AsyncMock(return_value=None)
     
     with patch.object(enforcer, '_get_session') as mock_get_session:
         mock_session = AsyncMock()
-        mock_session.post = AsyncMock(return_value=mock_response)
-        mock_session.__aenter__ = AsyncMock(return_value=mock_response)
-        mock_session.__aexit__ = AsyncMock()
+        mock_session.post = MagicMock(return_value=mock_response)
         mock_get_session.return_value = mock_session
         
         result = await enforcer.enforce("write", "document2")
@@ -76,12 +76,12 @@ async def test_opa_enforcer_non_200_response():
     # Mock the session response
     mock_response = AsyncMock()
     mock_response.status = 500
+    mock_response.__aenter__ = AsyncMock(return_value=mock_response)
+    mock_response.__aexit__ = AsyncMock(return_value=None)
     
     with patch.object(enforcer, '_get_session') as mock_get_session:
         mock_session = AsyncMock()
-        mock_session.post = AsyncMock(return_value=mock_response)
-        mock_session.__aenter__ = AsyncMock(return_value=mock_response)
-        mock_session.__aexit__ = AsyncMock()
+        mock_session.post = MagicMock(return_value=mock_response)
         mock_get_session.return_value = mock_session
         
         result = await enforcer.enforce("read", "document3")
@@ -96,7 +96,7 @@ async def test_opa_enforcer_connection_error():
     
     with patch.object(enforcer, '_get_session') as mock_get_session:
         mock_session = AsyncMock()
-        mock_session.post = AsyncMock(side_effect=aiohttp.ClientError("Connection failed"))
+        mock_session.post = MagicMock(side_effect=aiohttp.ClientError("Connection failed"))
         mock_get_session.return_value = mock_session
         
         with pytest.raises(aiohttp.ClientError):
@@ -112,13 +112,13 @@ async def test_opa_enforcer_with_context():
     mock_response = AsyncMock()
     mock_response.status = 200
     mock_response.json = AsyncMock(return_value={"result": True})
+    mock_response.__aenter__ = AsyncMock(return_value=mock_response)
+    mock_response.__aexit__ = AsyncMock(return_value=None)
     
     with patch.object(enforcer, '_get_session') as mock_get_session:
         mock_session = AsyncMock()
-        mock_post = AsyncMock(return_value=mock_response)
+        mock_post = MagicMock(return_value=mock_response)
         mock_session.post = mock_post
-        mock_session.__aenter__ = AsyncMock(return_value=mock_response)
-        mock_session.__aexit__ = AsyncMock()
         mock_get_session.return_value = mock_session
         
         context = {"user": "alice", "role": "admin"}
@@ -197,13 +197,13 @@ async def test_opa_enforcer_session_management():
     mock_response = AsyncMock()
     mock_response.status = 200
     mock_response.json = AsyncMock(return_value={"result": True})
+    mock_response.__aenter__ = AsyncMock(return_value=mock_response)
+    mock_response.__aexit__ = AsyncMock(return_value=None)
     
     with patch('aiohttp.ClientSession') as mock_session_class:
         mock_session = AsyncMock()
         mock_session.closed = False
-        mock_session.post = AsyncMock(return_value=mock_response)
-        mock_session.__aenter__ = AsyncMock(return_value=mock_response)
-        mock_session.__aexit__ = AsyncMock()
+        mock_session.post = MagicMock(return_value=mock_response)
         mock_session_class.return_value = mock_session
         
         await enforcer.enforce("read", "resource")
