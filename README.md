@@ -1,6 +1,20 @@
 # Rolaand Jayz Wayz – Coding with Natural Language: Intelligence Driven Development (RJW-IDD)
 
-> **A disciplined methodology for AI-assisted software development** — no code, just the pure method and templates for the artefacts you create when applying it.
+> **A disciplined methodology for AI-assisted software development** with a reference implementation demonstrating the principles in practice.
+
+## 🎉 Phase 1 Complete
+
+This repository now includes a **working reference implementation** of the RJW-IDD methodology:
+
+- ✅ **Async LangGraph Runner** - Execute graph workflows with timeout/retry behavior
+- ✅ **Enhanced Checkpointing** - Save, list, and rollback conversation states
+- ✅ **FIPA-ACL Messaging** - Standards-compliant agent communication
+- ✅ **Policy Enforcement Point (PEP)** - OPA HTTP enforcer with fail-closed fallback
+- ✅ **Supervisor (Jayz Wayz)** - Integrated facade for all components
+- ✅ **CLI Tools** - Demo execution and checkpoint management
+- ✅ **Comprehensive Tests** - Full test coverage for all components
+
+See the [Quick Start](#quick-start) section below to get started!
 
 ## What is RJW-IDD?
 
@@ -11,11 +25,34 @@ RJW-IDD (Intelligence Driven Development) is a methodology that replaces vibe-dr
 - **Specification-driven design** before implementation begins
 - **Test-driven execution** with living documentation
 
+## Quick Start
+
+```bash
+# 1. Clone and setup
+git clone https://github.com/Rolaand-Jayz/Jayz-Wayz.git
+cd Jayz-Wayz
+./scripts/bootstrap.sh
+source .venv/bin/activate
+
+# 2. Run tests
+pytest -q
+
+# 3. Try the demo
+python -m jayz_wayz.orchestrator demo --conversation-id my-conversation
+
+# 4. List checkpoints
+python -m jayz_wayz.orchestrator checkpoints list
+
+# 5. Rollback to a checkpoint (interactive)
+python -m jayz_wayz.orchestrator checkpoints rollback
+```
+
 ## Repository Structure
 
-This repository contains the **pure methodology** and **templates** only — no implementation code.
+This repository contains the **RJW-IDD methodology**, **templates**, and a **reference implementation**.
 
 ```text
+# Methodology
 rjw-idd-methodology/
 ├── core/                    # Core method principles
 │   └── METHOD-0001-core-method.md
@@ -40,6 +77,27 @@ rjw-idd-methodology/
 │   ├── change-log.md
 │   └── decisions/
 └── logs/                    # Stage audit reflections
+
+# Reference Implementation (Phase 1)
+src/jayz_wayz/
+├── __init__.py              # Package exports
+├── state.py                 # Graph state management
+├── fipa.py                  # FIPA-ACL message support
+├── checkpoint.py            # Enhanced checkpoint store
+├── policy.py                # Policy enforcement (OPA + LocalDeny)
+├── langgraph_core.py        # Async graph runner
+├── nodes.py                 # Node wrappers and common nodes
+├── supervisor.py            # Supervisor facade (Jayz Wayz)
+└── orchestrator.py          # CLI interface
+
+tests/                       # Test suite
+├── test_async_graph.py      # Async runner tests
+├── test_checkpoint.py       # Checkpoint tests
+├── test_fipa.py             # FIPA message tests
+└── test_policy_enforcer.py  # Policy enforcer tests
+
+scripts/                     # Development scripts
+└── bootstrap.sh             # Environment setup
 
 docs/                        # Reference documentation
 └── README.md
